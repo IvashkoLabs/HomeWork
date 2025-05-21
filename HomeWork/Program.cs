@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeWork
+namespace HomeWork//second branch
 {
     class Program
     {
@@ -34,9 +34,7 @@ namespace HomeWork
                             Console.WriteLine("too small");
                             continue;
                         }
-
-
-                        break;
+                        break;//
                     }
                     catch (FormatException)
                     {
@@ -44,7 +42,7 @@ namespace HomeWork
                     }
                     catch (OverflowException)
                     {
-                        Console.WriteLine("number is too big");
+                        Console.WriteLine("number is too big");//second branch
                     }
                 }
                 return number;
