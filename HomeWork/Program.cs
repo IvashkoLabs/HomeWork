@@ -12,7 +12,7 @@ namespace HomeWork//second branch
     {
         static void Main()
         {
-            string[] name=new string[3];
+            string[] name = new string[3];
             static int GetValidInput(string variableName)
             {
                 int number;
@@ -49,10 +49,10 @@ namespace HomeWork//second branch
             }
             int ListSize = GetValidInput("AmountOfStudens in group: ");
             StudentList B121 = new StudentList(ListSize);//-1
-            
-            for (int i = 0; i < ListSize; i++) 
+
+            for (int i = 0; i < ListSize; i++)
             {
-                Console.Write($"{i+1} First name: ");
+                Console.Write($"{i + 1} First name: ");
                 name[0] = Console.ReadLine();
                 Console.Write($"{i + 1} Middle name: ");
                 name[1] = Console.ReadLine();
@@ -63,16 +63,20 @@ namespace HomeWork//second branch
             B121.PrintAll();
             Console.Write($"\ntotal student: " + B121.GetAmountOfStudent());
 
-                Console.Write($"\nRename {B121.GetFullName(1)}");
-                Console.Write($"\nNew first name(type nothing if corect): ");
-                name[0] = Console.ReadLine();
-                Console.Write($"New middle name: ");
-                name[1] = Console.ReadLine();
-                Console.Write($"New last name: ");
-                name[2] = Console.ReadLine();
-                B121.RenameStudent(1, name[0], name[1], name[2]);
+            Console.Write($"\nRename {B121.GetFullName(1)}");
+            Console.Write($"\nNew first name(type nothing if corect): ");
+            name[0] = Console.ReadLine();
+            Console.Write($"New middle name: ");
+            name[1] = Console.ReadLine();
+            Console.Write($"New last name: ");
+            name[2] = Console.ReadLine();
+            B121.RenameStudent(1, name[0], name[1], name[2]);
 
+            B121.PrintAll();
+            Console.WriteLine($"student by number 2: {B121[2]} was expelled, now McGill is in his/her place. New list looks like this");
+            B121[2] = "James Morgan McGill";
             B121.PrintAll();
         }
     }
 }
+

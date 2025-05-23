@@ -11,26 +11,25 @@ namespace HomeWork
         private string[] firstNames;
         private string[] middleNames;
         private string[] lastNames;
-        private int AmountOfStudens;
-        
+        public int AmountOfStudens { get; private set; }//property
+
+
         public StudentList(int maxStudents)
         {
             firstNames = new string[maxStudents];
             middleNames = new string[maxStudents];
             lastNames = new string[maxStudents];
-            AmountOfStudens = maxStudents; 
+            AmountOfStudens = maxStudents;
         }
 
-        public string GetFullName(int index) 
+        public string GetFullName(int index)
         {
-            string fullname = firstNames[index] +" " + middleNames[index] + " " + lastNames[index];
+            string fullname = firstNames[index] + " " + middleNames[index] + " " + lastNames[index];
             return fullname;
         }
-        public int GetAmountOfStudent() 
-        {
-            return AmountOfStudens;
-        }
-        public void RenameStudent(int Index, string Fname, string Mname, string Lname) 
+        public int GetAmountOfStudent()//rudiment
+        { return AmountOfStudens; }
+        public void RenameStudent(int Index, string Fname, string Mname, string Lname)
         {
             if (Fname != "") { firstNames[Index] = Fname; }
             if (Mname != "") { middleNames[Index] = Mname; }
@@ -44,6 +43,40 @@ namespace HomeWork
                 Console.WriteLine($"\n{i + 1} | {firstNames[i]} | {middleNames[i]} | {lastNames[i]}");
             }
         }
+        public string this[int index]//indexator
+        {
+            get
+            {
+                if (index >= 0 && index < AmountOfStudens)
+                    return $"{firstNames[index]} {middleNames[index]} {lastNames[index]}";
+                else
+                    return "Index out of bounds";
+            }
+            set
+            {
+                if (index >= 0 && index < AmountOfStudens)
+                {
+                    string[] parts = value.Split(' ');
+                    if (parts.Length == 3)
+                    {
+                        firstNames[index] = parts[0];
+                        middleNames[index] = parts[1];
+                        lastNames[index] = parts[2];
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format: must be 'First Middle Last'");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Index out of bounds");
+                }
+
+
+            }
+        }
+
     }
 }
 
